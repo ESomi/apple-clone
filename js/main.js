@@ -122,13 +122,13 @@
         let imgElem;
         for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
             imgElem = new Image();            
-            imgElem.src = `../../download/apple-clone-v9/video/001/IMG_${6726 + i}.JPG`;
+            imgElem.src = `../apple-clone-v9/video/001/IMG_${6726 + i}.JPG`;
             sceneInfo[0].objs.videoImages.push(imgElem);
         }
         let imgElem2;
         for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
             imgElem2 = new Image();            
-            imgElem2.src = `../../download/apple-clone-v9/video/002/IMG_${7027 + i}.JPG`;
+            imgElem2.src = `../apple-clone-v9/video/002/IMG_${7027 + i}.JPG`;
             sceneInfo[2].objs.videoImages.push(imgElem2);
         }
 
@@ -206,9 +206,11 @@
         const currentYOffset = yOffset - prevScrollHeight;
         const scrollHeight = sceneInfo[currentScene].scrollHeight;
         const scrollRatio = currentYOffset / scrollHeight;
+
         switch (currentScene) {
             case 0:
                 let sequence = Math.round(calcValues(values.imageSequence, currentYOffset));
+                console.log(sequence);
                 objs.context.drawImage(objs.videoImages[sequence], 0, 0);
                 objs.canvas.style.opacity = calcValues(values.canvas_opacity, currentYOffset);
 
@@ -402,9 +404,11 @@
         //이 함수로 현재 몇 번째 섹션인지 판별함.
         enterNewScene = false;
         prevScrollHeight = 0;
+
         for (let i = 0; i < currentScene; i++) { //currentScene이 1일 때부터 동작함
             prevScrollHeight += sceneInfo[i].scrollHeight;//currentScne이 1,2,3일 때 각각 3330,6660,9990
         }
+
         if(yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight) { // 씬1을 모두 스크롤 하는 순간(=yOffset이 3330 + 3330 = 6660보다 커지는 순간)
         //currentScene이 증가함.
             enterNewScene = true;
@@ -419,18 +423,22 @@
             document.body.setAttribute('id', `show-scene-${currentScene}`)
         }
 
-            if (enterNewScene) return;
+        if (enterNewScene) return;
+
         playAnimation();
     }
     
-
-
     window.addEventListener('scroll', () => {
         yOffset = Math.ceil(window.pageYOffset)
         scrollLoop();
         // console.log(sceneInfo[0].scrollHeight)
     });
-    window.addEventListener('load', setLayout);
+
+    window.addEventListener('load', () => {		
+        setLayout();
+        sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0);
+    });
+    
     window.addEventListener('resize', setLayout);
 
 })();
