@@ -304,7 +304,6 @@
                 break;
     
             case 3:
-                console.log(innerHeight, innerWidth, document.body.offsetWidth)
                 let step = 0;
                 const widthRatio = window.innerWidth / objs.canvas.width;
                 const heightRatio = window.innerHeight / objs.canvas.height;
@@ -433,7 +432,6 @@
     window.addEventListener('scroll', () => {
         yOffset = Math.ceil(window.pageYOffset)
         scrollLoop();
-        // console.log(sceneInfo[0].scrollHeight)
     });
 
     window.addEventListener('load', () => {		
