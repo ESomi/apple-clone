@@ -23,8 +23,8 @@
             },
             values: {                
                 //이미지의 개수, 이미지 순서의 초기값과 최종값
-                videoImageCount: 300,
-                imageSequence: [0, 299], 
+                videoImageCount: 360,
+                imageSequence: [0, 359], 
                 canvas_opacity: [ 1, 0, {start: 0.9, end: 1 }],
                 messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
                 messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
@@ -72,8 +72,8 @@
                 videoImages: []           
             },
             values: {                
-                videoImageCount: 960,
-                imageSequence: [0, 959], 
+                videoImageCount: 679,
+                imageSequence: [0, 678], 
                 canvas_opacity_in: [0, 1, {start: 0, end: 0.1 }],
                 canvas_opacity_out: [ 1, 0, {start: 0.95, end: 1 }],
                 messageA_translateY_in: [20, 0, { start: 0.15, end: 0.2 }],
@@ -122,13 +122,14 @@
         let imgElem;
         for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
             imgElem = new Image();            
-            imgElem.src = `../apple-clone-v9/video/001/IMG_${6726 + i}.JPG`;
+            imgElem.src = `./video/video01/${1001 + i}.jpg`;
+            // imgElem.src = `./video/snowing001/snowing_${701 + i}.JPG`;
             sceneInfo[0].objs.videoImages.push(imgElem);
         }
         let imgElem2;
         for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
             imgElem2 = new Image();            
-            imgElem2.src = `../apple-clone-v9/video/002/IMG_${7027 + i}.JPG`;
+            imgElem2.src = `./video/video02/${2001 + i}.JPG`;
             sceneInfo[2].objs.videoImages.push(imgElem2);
         }
 
@@ -171,6 +172,8 @@
         document.body.setAttribute('id', `show-scene-${currentScene}`)
 
         const heightRatio = window.innerHeight /1080;
+        sceneInfo[0].objs.canvas.style.transform = `scale(${heightRatio})`
+        sceneInfo[2].objs.canvas.style.transform = `scale(${heightRatio})`
         sceneInfo[0].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`
         sceneInfo[2].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`
     }
@@ -210,7 +213,6 @@
         switch (currentScene) {
             case 0:
                 let sequence = Math.round(calcValues(values.imageSequence, currentYOffset));
-                console.log(sequence);
                 objs.context.drawImage(objs.videoImages[sequence], 0, 0);
                 objs.canvas.style.opacity = calcValues(values.canvas_opacity, currentYOffset);
 
