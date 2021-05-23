@@ -6,7 +6,7 @@ html {
 }
 body {
     overflow-x: hidden;
-    color: white;
+    color: rgb(29, 29, 31);
     letter-spacing: -0.05em;
     background: white;
 }
@@ -70,7 +70,6 @@ a {
 
 #scroll-section-0 h1 {
     position: relative;
-    top: 2vh;
     z-index: 1;
     font-size: 4rem;
     text-align: center;
@@ -79,7 +78,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 35vh;
+    top: 50vh;
     margin: 5px 0;
     height: 3em;
     font-size: 2.5rem;
@@ -122,12 +121,12 @@ a {
 }
 
 #scroll-section-2 .b {
-    top: 10%;
-    left: 40%;
+    top: 5%;
+    left: 35%;
 }
 
 #scroll-section-2 .c {
-    top: 15%;
+    top: 25%;
     left: 40%;
 }
 

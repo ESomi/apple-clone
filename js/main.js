@@ -429,11 +429,7 @@
         sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0);
     });
     
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
-          window.location.reload();
-      }
-    });
+    window.addEventListener('resize', setLayout);
 
     setCanvasImages();
 
