@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+.container {
+    overflow-x: hidden;
+}
+
 .global-nav {
     position: absolute;
     top: 0;
@@ -136,6 +140,8 @@ a {
     color:rgb(29, 29, 31);
 }
 .canvas-caption {
+    max-width: 1000px;
+    margin: -24rem auto 0;
     padding: 0 1rem;
     font-size: 1.2rem;
     color: rgb(177, 172, 172);
