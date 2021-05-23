@@ -66,11 +66,10 @@ a {
 
 #scroll-section-0 h1 {
     position: relative;
-    top: 20vh;
+    top: 2vh;
     z-index: 1;
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
-    /* color: mistyrose; */
 }
 .main-message {
     display: flex;
@@ -187,8 +186,8 @@ a {
 
 @media (min-width: 1024px) {
 	#scroll-section-0 h1 {
-		font-size: 9vw;
-        top: 20vh;
+		font-size: 7vw;
+        top: -7vh;
 	}
 	.main-message {
 		font-size: 4vw;
